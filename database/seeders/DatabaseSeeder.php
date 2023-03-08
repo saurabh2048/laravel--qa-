@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory(10)->create()->each(function($u){
             $u->questions()
             ->saveMany(
-                \App\Models\Question::factory(10)->make()
+                \App\Models\Question::factory(1)->make()
             );
         });
        
