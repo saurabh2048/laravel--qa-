@@ -10819,18 +10819,39 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-}
-
 .counters {
   margin-right: 30px;
   font-size: 10px;
-  text-align: center;
+  text-align: left;
+  position: absolute;
+}
+.counters strong {
+  display: block;
+  font-size: 2em;
 }
 .counters .vote, .counters .answer {
   width: 60px;
   height: 60px;
-  border: 1px solid red;
+}
+.counters .status.unanswered {
+  border: none;
+}
+.counters .status.answered {
+  border: 1px solid rgb(95, 187, 126);
+  color: rgb(95, 187, 126);
+}
+.counters .status.answered-accepted {
+  background: rgb(95, 187, 126);
+  color: #fff;
+}
+.counters .view {
+  margin-top: 10px;
+}
+
+.media-body {
+  margin-left: 100px;
+}
+
+form.form-delete {
+  display: inline;
 }
