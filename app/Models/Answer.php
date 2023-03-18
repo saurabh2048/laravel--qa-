@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Parsedown;
+use App\Models\Question;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Answer extends Model
 {
@@ -19,6 +21,14 @@ class Answer extends Model
     }
     public function getBodyHtmlAttribute()
     {
-        return \Parsedown::instance()->line($this->body);
+        return Parsedown::instance()->line($this->body);
+    }
+    public static function boot()
+    {
+        parent::boot();
+        Question::created(function($answer){
+            $answer->question->increment('answers_count');
+            $answer->question->save();
+        });        
     }
 }
