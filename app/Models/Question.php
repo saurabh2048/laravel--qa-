@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Parsedown;
 use App\Models\User;
+use App\Models\Answer;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -24,6 +25,7 @@ class Question extends Model
 
     public function getUrlAttribute()
     {
+
         return route("questions.show",$this->slug);
     }
 

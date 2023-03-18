@@ -24,6 +24,7 @@ class QuestionsController extends Controller
         //  dd(DB::getQueryLog());
 
         $questions = Question::with('user')->latest()->paginate(5);
+        // dd($questions);
          return view('questions.index',compact('questions'));
 
     }
